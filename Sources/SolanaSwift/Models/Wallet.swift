@@ -1,12 +1,12 @@
 import Foundation
 
-public struct Wallet: Hashable {
+public struct Wallet: Hashable, Codable {
     // MARK: - Properties
 
     public var pubkey: String?
     public var lamports: UInt64?
     public var token: Token
-    public var userInfo: AnyHashable?
+//    public var userInfo: AnyHashable?
 
     public var isNativeSOL: Bool {
         token.isNativeSOL

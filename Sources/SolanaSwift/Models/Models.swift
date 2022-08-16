@@ -99,11 +99,11 @@ public struct Fee: Decodable {
     public let lastValidSlot: UInt64?
 }
 
-public struct FeeCalculatorResponse: Decodable {
+public struct FeeCalculatorResponse: Codable {
     public let lamportsPerSignature: Lamports
 }
 
-public struct FeeRateGovernor: Decodable {
+public struct FeeRateGovernor: Codable {
     public let burnPercent: UInt64
     public let maxLamportsPerSignature: Lamports
     public let minLamportsPerSignature: Lamports
@@ -111,11 +111,11 @@ public struct FeeRateGovernor: Decodable {
     public let targetSignaturesPerSlot: UInt64
 }
 
-public struct Identity: Decodable {
+public struct Identity: Codable {
     public let identity: String
 }
 
-public struct InflationGovernor: Decodable {
+public struct InflationGovernor: Codable {
     public let foundation: Float64
     public let foundationTerm: Float64
     public let initial: Float64
@@ -123,14 +123,14 @@ public struct InflationGovernor: Decodable {
     public let terminal: Float64
 }
 
-public struct InflationRate: Decodable {
+public struct InflationRate: Codable {
     public let epoch: Float64
     public let foundation: Float64
     public let total: Float64
     public let validator: Float64
 }
 
-public struct LargestAccount: Decodable {
+public struct LargestAccount: Codable {
     public let lamports: Lamports
     public let address: String
 }
@@ -179,14 +179,14 @@ public struct BufferInfoParsed<T: Decodable>: Decodable {
     public let rentEpoch: UInt64
 }
 
-public struct PerformanceSample: Decodable {
+public struct PerformanceSample: Codable {
     public let numSlots: UInt64
     public let numTransactions: UInt64
     public let samplePeriodSecs: UInt
     public let slot: UInt64
 }
 
-public struct SignatureInfo: Decodable {
+public struct SignatureInfo: Codable {
     public let signature: String
     public let slot: UInt64?
     public let err: TransactionError?
@@ -202,21 +202,21 @@ public struct SignatureInfo: Decodable {
     }
 }
 
-public struct SignatureStatus: Decodable {
+public struct SignatureStatus: Codable {
     public let slot: UInt64
     public let confirmations: UInt64?
     public let err: TransactionError?
     public let confirmationStatus: String?
 }
 
-public struct TransactionInfo: Decodable {
+public struct TransactionInfo: Codable {
     public let blockTime: UInt64?
     public let meta: TransactionMeta?
     public let transaction: ConfirmedTransaction
     public let slot: UInt64?
 }
 
-public struct TransactionMeta: Decodable {
+public struct TransactionMeta: Codable {
     public let err: TransactionError?
     public let fee: Lamports?
     public let innerInstructions: [InnerInstruction]?
@@ -261,23 +261,23 @@ public struct ErrorDetail: Codable {
     }
 }
 
-public struct InnerInstruction: Decodable {
+public struct InnerInstruction: Codable {
     public let index: UInt32
     public let instructions: [ParsedInstruction]
 }
 
-public struct TokenBalance: Decodable {
+public struct TokenBalance: Codable {
     public let accountIndex: UInt64
     public let mint: String
     public let uiTokenAmount: TokenAccountBalance
 }
 
-public struct SimulationResult: Decodable {
+public struct SimulationResult: Codable {
     public let err: ErrorDetail? // TransactionError? // string | object
     public let logs: [String]
 }
 
-public struct StakeActivation: Decodable {
+public struct StakeActivation: Codable {
     public let active: UInt64
     public let inactive: UInt64
     public let state: String
