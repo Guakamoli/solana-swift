@@ -1,21 +1,21 @@
 import Foundation
 
-public struct ConfirmedTransaction: Decodable {
+public struct ConfirmedTransaction: Codable {
     public let message: Message
     public let signatures: [String]
 }
 
 public extension ConfirmedTransaction {
-    struct Message: Decodable {
+    struct Message: Codable {
         public let accountKeys: [Account.Meta]
         public let instructions: [ParsedInstruction]
         public let recentBlockhash: String
     }
 }
 
-public struct ParsedInstruction: Decodable {
-    public struct Parsed: Decodable {
-        public struct Info: Decodable {
+public struct ParsedInstruction: Codable {
+    public struct Parsed: Codable {
+        public struct Info: Codable {
             public let owner: String?
             public let account: String?
             public let source: String?
