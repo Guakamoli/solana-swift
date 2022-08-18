@@ -136,10 +136,12 @@ public extension SolanaAPIClient {
                                                                ),
                                                                configs: .init(encoding: "base64"))
         let tokensRepository = tokensRepository ?? TokensRepository(endpoint: endpoint)
-        async let tokens = try await tokensRepository.getTokensList()
+        // async let tokens = try await tokensRepository.getTokensList()
         var knownWallets = [Wallet]()
         var unknownAccounts = [(String, AccountInfo)]()
-        let (list, supportedTokens) = (try await accounts, try await tokens)
+        let list = try await accounts
+        let supportedTokens:[Token] = []
+//        let (list, supportedTokens) = (try await accounts, try await tokens)
 
         for item in list {
             let pubkey = item.pubkey
